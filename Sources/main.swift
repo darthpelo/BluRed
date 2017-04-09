@@ -44,7 +44,7 @@ func switchOn(led: Command?) {
     }
 
     switch(led) {
-    case .button:
+    case .Button:
         setupLEDs()
         setupButtons()
 
