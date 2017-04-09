@@ -51,7 +51,10 @@ func switchOn(led: Command?) {
         while true {
 
             if let value = bluButton?.value, value == 0 {
-                print("blu " + "\(value)")
+                usleep(100*1000) // 100ms
+                if let value2 = bluButton?.value, value2 == value {
+                    print("blu " + "\(value)")  
+                }
             }
             if let value = redButton?.value, value == 0 {
                 print("red " + "\(value)")
