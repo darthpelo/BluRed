@@ -50,10 +50,10 @@ func switchOn(led: Command?) {
 
         while true {
 
-            if let value = bluButton?.value {
+            if let value = bluButton?.value, value == 0 {
                 print("blu " + "\(value)")
             }
-            if let value = redButton?.value {
+            if let value = redButton?.value, value == 0 {
                 print("red " + "\(value)")
             }
         }
