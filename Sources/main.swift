@@ -9,6 +9,7 @@ var bluLed: GPIO?
 var redLed: GPIO?
 var bluButton: GPIO?
 var redButton: GPIO?
+let filter: UInt32 = (150 * 1000)
 
 guard CommandLine.arguments.count == 2 else {
     print("Usage:  BasicGPIO VALUE")
@@ -50,7 +51,7 @@ func switchOn(led: Command?) {
 
         while true {
             if let value1 = bluButton?.value, value1 == 0 {
-                usleep(100*1000) // 100ms
+                usleep(filter)
                 if let value2 = bluButton?.value, value2 == value1 {
                     print("blu " + "\(value1)")
                     bluLed?.value = bluLed?.value == 0 ? 1 : 0
@@ -58,7 +59,7 @@ func switchOn(led: Command?) {
             }
 
             if let value1 = redButton?.value, value1 == 0 {
-              usleep(100*1000) // 100ms
+              usleep(100*1000) // 10ms
               if let value2 = redButton?.value, value2 == value1 {
                   print("red " + "\(value1)")
                   redLed?.value = redLed?.value == 0 ? 1 : 0 
