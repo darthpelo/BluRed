@@ -44,16 +44,16 @@ func switchOn(led: Command?) {
     }
 
     switch(led) {
-    case .button:
+    case .Button:
         setupLEDs()
         setupButtons()
 
         while true {
 
-            if let value = bluButton?.value {
+            if let value = bluButton?.value, value == 0 {
                 print("blu " + "\(value)")
             }
-            if let value = redButton?.value {
+            if let value = redButton?.value, value == 0 {
                 print("red " + "\(value)")
             }
         }
